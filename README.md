@@ -6,32 +6,51 @@ Notes on ALMA array combinations for the Data Reduction Workshop (29-oct-2024)
 
 
 
-# qac2024https://casa.nrao.edu/casa_obtaining.shtml
+# qac2024
 
-# https://casa.nrao.edu/download/distro/casa/release/rhel/casa-6.6.5-31-py3.10.el8.tar.xz
-# https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.6-22-py3.8.el8.tar.xz
 
-# tar xf casa-6.6.5-31-py3.10.el8.tar.xz
-# tar xf casa-6.5.6-22-py3.8.el8.tar.xz
+## CASA: example links
+
+1. https://casa.nrao.edu/casa_obtaining.shtml
+2. https://casa.nrao.edu/download/distro/casa/release/rhel/casa-6.6.5-31-py3.10.el8.tar.xz
+3. https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.6-22-py3.8.el8.tar.xz
+
+
+### Installing
+
+Although 6.6.5 is available, current examples have only been verified for 6.5.6
+
+Download, extract, and run:
+
+      tar xf casa-6.5.6-22-py3.8.el8.tar.xz
+      casa-6.6.5-31-py3.10.el8/bin/casa
 
 
 # just data
 # https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
 
-$ casa-6.6.5-31-py3.10.el8/bin/casa
+###  Converting CASA format to FITS
 
-CASA <1> exportfits('demo/M100_combine12+7_CO_cube.image','M100-demo.fits')
-CASA <2> exit
+      casa-6.6.5-31-py3.10.el8/bin/casa
+      CASA <1> exportfits('demo/M100_combine12+7_CO_cube.image','M100-demo.fits')
+      CASA <2> exit
 
-$ ds9 M100-demo.fits
+      $ ds9 M100-demo.fits
+      $ carta M100-demo.fits
 
-$ carta M100-demo.fits
+      #      for very large cubes, conversion can be useful to speed up CARTA
+      $ fits2idia [-o M100-demo.hdf5] M100-demo.fits
+      $ carta M100-demo.fits
+
+### Sample CASA guides
+
+1. https://casaguides.nrao.edu/index.php/M100_Band3
+2. https://casaguides.nrao.edu/index.php/M100_Band3_Combine
+3. https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish
 
 
+Note currently the Combine and SingleDish casaguides point to casa version 6.5.4
 
-
-
-https://casaguides.nrao.edu/index.php/M100_Band3_Combine_6.5.4
 
 https://almascience.nrao.edu/alma-data/science-verification   #4 on the list
 http://almascience.org/almadata/sciver/M100Band3_12m
@@ -59,3 +78,14 @@ http://almascience.org/almadata/sciver/M100Band3ACA
 # https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish_6.5.4
 
 # https://casaguides.nrao.edu/index.php/M100_Band3_Combine_6.5.4
+
+
+
+# Related Links
+
+
+1. CASA: https://casa.nrao.edu/casa_obtaining.shtml
+2. CARTA: https://cartavis.org/
+3. DataComb: https://github.com/teuben/DataComb 
+4. QAC: https://github.com/teuben/QAC 
+5. Phangs: https://github.com/akleroy/phangs_imaging_scripts
