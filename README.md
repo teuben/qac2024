@@ -31,9 +31,9 @@ example links
 3. https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.6-22-py3.8.el8.tar.xz
 
 
-Although 6.6.5 is available, current examples have only been verified for 6.5.6
+Although 6.6.5 is available, current examples have only been verified for 6.5.6 (Peter)
 
-Download, extract, and run:
+Download, extract, and run. Here's an example for linux:
 
       tar xf casa-6.5.6-22-py3.8.el8.tar.xz
       casa-6.6.5-31-py3.10.el8/bin/casa
@@ -44,9 +44,15 @@ For ubuntu, carta is now available as a standard package
 
       sudo apt install carta
 
-otherwise head over to https://cartavis.org to download
+otherwise head over to https://cartavis.org to download your favorite version of CARTA.
+
 
 ### Analysis Scripts
+
+Some of the demos need you to install a plugin for CASA, called analysis script. I normally
+put them in the ~/.casa directory, e.g.
+
+
 
 
 
