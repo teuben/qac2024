@@ -111,3 +111,4 @@ http://almascience.org/almadata/sciver/M100Band3ACA
 3. DataComb: https://github.com/teuben/DataComb 
 4. QAC: https://github.com/teuben/QAC 
 5. Phangs: https://github.com/akleroy/phangs_imaging_scripts
+6. CASA-Guides-Script-Extractor: https://github.com/CasaGuides/CASA-Guides-Script-Extractor
