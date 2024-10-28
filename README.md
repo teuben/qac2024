@@ -1,22 +1,36 @@
-# Quick Array Combinations 2024
+# Quick Array Combinations 2024 (qac2024)
 
 Notes on ALMA array combinations for the Data Reduction Workshop (29-oct-2024)
 
+https://science.nrao.edu/facilities/alma/facilities/alma/naasc-workshops/nrao-dr-umd24
+
+Program overview:
 
 
 
+*    10:30 - 10:40  Welcome coffee & event logistics
+*    10:40 - 11:40  ALMA Overview and Interferometry Basics (Eltha Teng)
+*    11:40 - 12:00  Science Talk (Keaton Donaghue): "Enshrouded in Dust: Using ALMA to Probe the Embedded Super Star Clusters in NGC 253"
+*    12:00 - 13:00  Lunch (provided for in-person attendees)
+*    13:00 - 13:30  Verifying data, scripts, and using CASA and CARTA
+*    13:30 - 14:30  Tutorial: continuum maging and self-calibration with CASA (Eltha Teng)
+*    14:30 - 14:50  Short break
+*    14:50 - 16:20  Tutorial: imaging array combination with feathering and advanced methods (Peter Teuben)
+*    16:20 - 16:45  Tutorial: data visualization with CARTA (Eltha & Peter)
+*    16:45 - 17:00  Wrap-up & survey
 
-# qac2024
 
 
-## CASA: example links
+## Installing
+
+### CASA
+
+example links
 
 1. https://casa.nrao.edu/casa_obtaining.shtml
 2. https://casa.nrao.edu/download/distro/casa/release/rhel/casa-6.6.5-31-py3.10.el8.tar.xz
 3. https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.6-22-py3.8.el8.tar.xz
 
-
-### Installing
 
 Although 6.6.5 is available, current examples have only been verified for 6.5.6
 
@@ -24,6 +38,14 @@ Download, extract, and run:
 
       tar xf casa-6.5.6-22-py3.8.el8.tar.xz
       casa-6.6.5-31-py3.10.el8/bin/casa
+
+### carta
+
+For ubuntu, carta is now available as a standard package
+
+      sudo apt install carta
+
+otherwise head over to https://cartavis.org to download
 
 
 # just data
