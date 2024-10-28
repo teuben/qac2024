@@ -1,10 +1,13 @@
 # Quick Array Combinations 2024 (qac2024)
 
-Notes on ALMA array combinations for the Data Reduction Workshop (29-oct-2024)
+Additional notes and script for the ALMA array combinations for the Data Reduction Workshop (29-oct-2024). This link will
+be available on  https://github.com/teuben/qac2024 - please reload/pull this regularly for timely updates.
+
+
+
+##  Program overview:
 
 Original link: https://science.nrao.edu/facilities/alma/facilities/alma/naasc-workshops/nrao-dr-umd24
-
-Program overview:
 
 
 *    10:30 - 10:40  Welcome coffee & event logistics
@@ -20,13 +23,15 @@ Program overview:
 
 
 
-## Installing
+## 1. Installing
 
-### CASA
+### 1.1 CASA
 
-example links
+See  https://casa.nrao.edu/casa_obtaining.shtml how to obtain **casa**
 
-1. https://casa.nrao.edu/casa_obtaining.shtml
+Some example links:
+
+
 2. https://casa.nrao.edu/download/distro/casa/release/rhel/casa-6.6.5-31-py3.10.el8.tar.xz
 3. https://alma-dl.mtk.nao.ac.jp/ftp/casa/distro/casa/release/rhel/casa-6.5.6-22-py3.8.el8.tar.xz
 
@@ -38,26 +43,37 @@ Download, extract, and run. Here's an example for linux:
       tar xf casa-6.5.6-22-py3.8.el8.tar.xz
       casa-6.6.5-31-py3.10.el8/bin/casa
 
-### CARTA
+### 1.2 CARTA
 
-For ubuntu, carta is now available as a standard package
+For ubuntu, **carta** is now available as a standard package
 
       sudo apt install carta
 
 otherwise head over to https://cartavis.org to download your favorite version of CARTA.
 
 
-### Analysis Scripts
+### 1.3 Analysis Scripts
 
 Some of the demos need you to install a plugin for CASA, called analysis script. I normally
-put them in the ~/.casa directory, e.g.
+put them in the **~/.casa** directory, e.g.
 
+      cd ~/.casa
+      wget ftp://ftp.cv.nrao.edu/pub/casaguides/analysis_scripts.tar
+      tar xf analysis_scripts.tar
 
+and add the plugin to your **~/.casa/startup.py** file:
 
+      import sys
+      sys.path.append("/home/teuben/.casa/analysis_scripts")
+      import analysisUtils as au
 
+for a more portable version, one can use
 
+      import sys, os
+      sys.path.append("%s/.casa/analysis_scripts" % os.environ["HOME"])
+      import analysisUtils as au
 
-###  Converting CASA format to FITS
+###  1.4 Converting CASA format to FITS
 
       casa-6.6.5-31-py3.10.el8/bin/casa
       CASA <1> exportfits('demo/M100_combine12+7_CO_cube.image','M100-demo.fits')
@@ -70,24 +86,32 @@ put them in the ~/.casa directory, e.g.
       $ fits2idia [-o M100-demo.hdf5] M100-demo.fits
       $ carta M100-demo.fits
 
-### Sample CASA guides
+### 1.5 Sample CASA guides
 
-0. https://almascience.nrao.edu/alma-data/science-verification   #4 on the list
+0. https://almascience.nrao.edu/alma-data/science-verification   (TW Hyd is #1 on the list, M100 is #4 on the list)
+1. https://casaguides.nrao.edu/index.php?title=TWHydraBand7   ???
 1. https://casaguides.nrao.edu/index.php/M100_Band3
 2. https://casaguides.nrao.edu/index.php/M100_Band3_Combine
 3. https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish
 
 
-Note currently the Combine and SingleDish casaguides point to casa version 6.5.4 (Fall 2024)
+Note currently the Combine and SingleDish casaguides point to casa version 6.5.4 (Fall 2024), even though the latest version is 6.6.5
 
-### Data
+## 2. Data
 
-For M100 We will need 12m, 7m, and TP data. For TW-Hyd .....
+
+### 2.1 TW Hyd
+
+For TW-Hyd .....
 
 0. TW-Hyd data:  http://
 
    1.  bla bla
    2.  bla bla
+
+### 2.2 M100
+
+For M100 We will need 12m, 7m, and TP data.
 
 
 1. M100 12m data: http://almascience.org/almadata/sciver/M100Band3_12m
@@ -102,12 +126,11 @@ For M100 We will need 12m, 7m, and TP data. For TW-Hyd .....
 2. M100 7m & TP data: http://almascience.org/almadata/sciver/M100Band3ACA
 
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_CalibratedData.tgz            - 9.1G ***
-       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_Imaging.py
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_Imaging.py                    - still python2
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_TP_CalibratedData_5.1.tgz        - 13G   --no--
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_DataComb_ReferenceImages_5.1.tgz - 393M
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_ACA_ReferenceImages_5.1.tgz      - 24M
 
-  !  had to move the ms and mask file into the top level directory where working
 
 3. M100 Combo Tutorial:  https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
 
@@ -115,15 +138,23 @@ For M100 We will need 12m, 7m, and TP data. For TW-Hyd .....
        script.py
 
 
-## Data Symlinks:
+### 2.2 Data Symlinks:
 
-As mentoined, the tgz files dump their (calibrated) data in subdirectories. To avoid confusion I decided to use
+As mentioned, the tgz files dump their (calibrated) data in subdirectories. To avoid confusion I decided to use
 symlinks to these places, instead of moving them. So we would have:
 
 
       ln -s M100_Band3_12m_CalibratedData/M100_Band3_12m_CalibratedData.ms/
       ln -s M100_Band3_7m_CalibratedData/M100_Band3_7m_CalibratedData.ms
       ln -s M100_Band3_ACA_ReferenceImages_5.1/M100_TP_CO_cube.spw3.image.bl
+
+### 2.3 Quick Data
+
+The data for M100 are huge!  We have compiled a dataset with trimmed down data
+for the 12m and 7m with just 70 x 5km/s channels to combine the data much
+quicker.
+
+To be confirmed if these still work, but this might be the link:  https://www.astro.umd.edu/~teuben/QAC/qac_bench5.tar.gz 
 
 
 # Links
