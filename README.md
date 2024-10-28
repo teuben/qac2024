@@ -2,10 +2,9 @@
 
 Notes on ALMA array combinations for the Data Reduction Workshop (29-oct-2024)
 
-https://science.nrao.edu/facilities/alma/facilities/alma/naasc-workshops/nrao-dr-umd24
+Original link: https://science.nrao.edu/facilities/alma/facilities/alma/naasc-workshops/nrao-dr-umd24
 
 Program overview:
-
 
 
 *    10:30 - 10:40  Welcome coffee & event logistics
@@ -77,10 +76,15 @@ Note currently the Combine and SingleDish casaguides point to casa version 6.5.4
 
 ### Data
 
-We will need 12m, 7m, and TP data. 
+For M100 We will need 12m, 7m, and TP data. For TW-Hyd .....
+
+0. TW-Hyd data:  http://
+
+   1.  bla bla
+   2.  bla bla
 
 
-1. 12m data: http://almascience.org/almadata/sciver/M100Band3_12m
+1. M100 12m data: http://almascience.org/almadata/sciver/M100Band3_12m
 
    1. https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_CalibratedData.tgz    15GB  ***
    2. https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_Imaging.py
@@ -89,7 +93,7 @@ We will need 12m, 7m, and TP data.
             M100_12m_CO_demo.mask
             M100_Band3_12m_Imaging.py   (should produce M100_Band3_12m_ReferenceImages.tgz = 297M)
 	 
-2. 7m & TP data: http://almascience.org/almadata/sciver/M100Band3ACA
+2. M100 7m & TP data: http://almascience.org/almadata/sciver/M100Band3ACA
 
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_CalibratedData.tgz            - 9.1G ***
        https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_Imaging.py
@@ -99,7 +103,7 @@ We will need 12m, 7m, and TP data.
 
   !  had to move the ms and mask file into the top level directory where working
 
-3. Combo Tutorial:  https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
+3. M100 Combo Tutorial:  https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
 
        M100_combine12+7_CO_cube.image.tgz
        script.py
