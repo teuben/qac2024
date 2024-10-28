@@ -102,16 +102,19 @@ Note currently the Combine and SingleDish casaguides point to casa version 6.5.4
 
 ### 2.1 TW Hyd
 
-For TW-Hyd .....
+For TW-Hya, we need the calibrated measurement set (twhya_calibrated.ms).
 
-0. TW-Hyd data:  http://
+0. TW-Hya data:  https://bulk.cv.nrao.edu/almadata/public/ALMA_firstlooks/twhya_firstlook.tgz
 
-   1.  bla bla
-   2.  bla bla
+   Extract the needed files and download *both* text files:
+   1.  tar -xvzf twhya_firstlook.tgz
+   2.  tar -xvf twhya_calibrated.ms.tar
+   3.  
+
 
 ### 2.2 M100
 
-For M100 We will need 12m, 7m, and TP data.
+For M100 We will need 12m, 7m, and TP data. 
 
 
 1. M100 12m data: http://almascience.org/almadata/sciver/M100Band3_12m
