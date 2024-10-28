@@ -157,7 +157,9 @@ quicker.
 To be confirmed if these still work, but this might be the link:  https://www.astro.umd.edu/~teuben/QAC/qac_bench5.tar.gz 
 
 
-# Links
+# References
+
+## Links
 
 
 1. CASA: https://casa.nrao.edu/casa_obtaining.shtml
@@ -167,3 +169,13 @@ To be confirmed if these still work, but this might be the link:  https://www.as
 4. QAC: https://github.com/teuben/QAC 
 5. Phangs: https://github.com/akleroy/phangs_imaging_scripts
 6. CASA-Guides-Script-Extractor: https://github.com/CasaGuides/CASA-Guides-Script-Extractor
+
+## Papers
+
+* [Ekers and Rots 1979](https://ui.adsabs.harvard.edu/abs/1979ASSL...76...61E)
+* [Vogel et al. 1984](https://ui.adsabs.harvard.edu/abs/1984ApJ...283..655V)
+* [Braun and Walterbos 1985](https://ui.adsabs.harvard.edu/abs/1985A%26A...143..307B)
+* [Jorsater and van Moorsel 1995](https://ui.adsabs.harvard.edu/abs/1995AJ....110.2037J)
+* [Kurono, Morita, Kamazaki 2009](https://ui.adsabs.harvard.edu/abs/2009PASJ...61..873K)
+* [Koda et al. 2011](https://ui.adsabs.harvard.edu/abs/2011ApJS..193...19K)
+* [Koda et al. 2019](https://ui.adsabs.harvard.edu/abs/2019PASP..131e4505K)
