@@ -130,6 +130,7 @@ symlinks to these places, instead of moving them. So we would have:
 
 
 1. CASA: https://casa.nrao.edu/casa_obtaining.shtml
+1. Analysis Scripts: ftp://ftp.cv.nrao.edu/pub/casaguides/analysis_scripts.tar
 2. CARTA: https://cartavis.org/
 3. DataComb: https://github.com/teuben/DataComb 
 4. QAC: https://github.com/teuben/QAC 
