@@ -5,8 +5,9 @@ URL1 = https://github.com/CasaGuides/CASA-Guides-Script-Extractor
 URL2 = ftp://ftp.cv.nrao.edu/pub/casaguides/analysis_scripts.tar
 URL3 = https://github.com/teuben/QAC
 URL4 = https://github.com/teuben/DataComb 
+URL5 = https://github.com/akleroy/phangs_imaging_scripts
 
-GIT_DIRS = CASA-Guides-Script-Extractor analysis_scripts.tar QAC DataComb 
+GIT_DIRS = CASA-Guides-Script-Extractor analysis_scripts.tar QAC DataComb  phangs_imaging_scripts
 
 .PHONY:  help install git
 
@@ -38,3 +39,6 @@ QAC:
 
 DataComb:
 	git clone $(URL4)
+
+phangs_imaging_scripts:
+	git clone $(URL5)
