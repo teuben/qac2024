@@ -24,14 +24,13 @@ concat(vis=['M100_X146.ms.cal', 'M100_X220.ms.cal', 'M100_X54.ms.cal'],concatvis
 
 ##################################################
 # Check CASA version
- 
-version = casadef.casa_version
-print "You are using " + version
-if (version < '4.3.0'):
-    print "YOUR VERSION OF CASA IS TOO OLD FOR THIS GUIDE."
-    print "PLEASE UPDATE IT BEFORE PROCEEDING."
+version = casalith.version_string()
+print("You are using " + version)
+if (version < '6.5.0'):
+    print("YOUR VERSION OF CASA IS TOO OLD FOR THIS GUIDE.")
+    print("PLEASE UPDATE IT BEFORE PROCEEDING.")
 else:
-    print "Your version of CASA is appropriate for this guide."
+    print("Your version of CASA is appropriate for this guide.")
 
 ##################################################
 # Identify Line-free SPWs and channels
@@ -81,7 +80,7 @@ tclean(vis=contvis,
       robust = 0.5,
       niter = 1000, 
       threshold = '0.0mJy',
-      interactive = True,
+      #interactive = True,
       gridder = 'mosaic',
       pbcor=True)
 
@@ -93,7 +92,7 @@ tclean(vis=contvis,
 fitspw = '0:200~1500;2500~3700,1~3:100~3700' # line-free channel for fitting continuum
 linespw = '0' # line spectral windows.
 
-uvcontsub(vis=finalvis,
+uvcontsub_old(vis=finalvis,
           spw=linespw, # spw to do continuum subtraction on
           fitspw=fitspw, 
           combine='', 
@@ -128,7 +127,7 @@ tclean(vis=linevis,
       restfreq='115.271201800GHz', # rest frequency of primary line of interest
       niter=10000,  
       threshold='0.015Jy', 
-      interactive=True,
+      #interactive=True,
       cell='0.5arcsec',
       imsize=800, 
       weighting='briggs', 
@@ -163,13 +162,15 @@ immoments(imagename = 'M100_12m_CO.image.pbcor',
          includepix = [0.02,100.],
          outfile = 'M100_12m_CO.image.pbcor.mom0')
 
-# Make some png plots 
+# Make some png plots (deprecated)
 
-imview (raster=[{'file': 'M100_12m_CO.image.mom0',
+if False:
+
+    imview (raster=[{'file': 'M100_12m_CO.image.mom0',
                  'range': [-0.3,25.],'scaling': -1.0,'colorwedge': True}],
          zoom={'blc': [190,150],'trc': [650,610]},
          out='M100_12m_CO.image.mom0.png')
-imview (raster=[{'file': 'M100_12m_CO.image.mom1',
+    imview (raster=[{'file': 'M100_12m_CO.image.mom1',
                  'range': [1455,1695],'colorwedge': True}],
          zoom={'blc': [190,150],'trc': [650,610]},
          out='M100_12m_CO.image.mom1.png')
@@ -178,10 +179,10 @@ imview (raster=[{'file': 'M100_12m_CO.image.mom1',
 ##############################################
 # Export the images
 
-exportfits(imagename='M100_12m_CO.image', fitsimage='M100_12m_CO.image.fits')
-exportfits(imagename='M100_12m_CO.pb', fitsimage='M100_12m_CO.pb.fits')
-exportfits(imagename='M100_12m_CO.image.pbcor', fitsimage='M100_12m_CO.image.pbcor.fits')
-exportfits(imagename='M100_12m_CO.image.mom0', fitsimage='M100_12m_CO.image.mom0.fits')
+exportfits(imagename='M100_12m_CO.image',            fitsimage='M100_12m_CO.image.fits')
+exportfits(imagename='M100_12m_CO.pb',               fitsimage='M100_12m_CO.pb.fits')
+exportfits(imagename='M100_12m_CO.image.pbcor',      fitsimage='M100_12m_CO.image.pbcor.fits')
+exportfits(imagename='M100_12m_CO.image.mom0',       fitsimage='M100_12m_CO.image.mom0.fits')
 exportfits(imagename='M100_12m_CO.image.pbcor.mom0', fitsimage='M100_12m_CO.image.mom0.pbcor.fits')
-exportfits(imagename='M100_12m_CO.image.mom1', fitsimage='M100_12m_CO.image.mom1.fits')
+exportfits(imagename='M100_12m_CO.image.mom1',       fitsimage='M100_12m_CO.image.mom1.fits')
 
