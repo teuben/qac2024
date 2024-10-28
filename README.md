@@ -13,7 +13,7 @@ Program overview:
 *    11:40 - 12:00  Science Talk (Keaton Donaghue): "Enshrouded in Dust: Using ALMA to Probe the Embedded Super Star Clusters in NGC 253"
 *    12:00 - 13:00  Lunch (provided for in-person attendees)
 *    13:00 - 13:30  Verifying data, scripts, and using CASA and CARTA
-*    13:30 - 14:30  Tutorial: continuum maging and self-calibration with CASA (Eltha Teng)
+*    13:30 - 14:30  Tutorial: continuum imaging and self-calibration with CASA (Eltha Teng)
 *    14:30 - 14:50  Short break
 *    14:50 - 16:20  Tutorial: imaging array combination with feathering and advanced methods (Peter Teuben)
 *    16:20 - 16:45  Tutorial: data visualization with CARTA (Eltha & Peter)
