@@ -39,7 +39,7 @@ Download, extract, and run:
       tar xf casa-6.5.6-22-py3.8.el8.tar.xz
       casa-6.6.5-31-py3.10.el8/bin/casa
 
-### carta
+### CARTA
 
 For ubuntu, carta is now available as a standard package
 
@@ -47,9 +47,10 @@ For ubuntu, carta is now available as a standard package
 
 otherwise head over to https://cartavis.org to download
 
+### Analysis Scripts
 
-# just data
-# https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
+
+
 
 ###  Converting CASA format to FITS
 
@@ -66,44 +67,56 @@ otherwise head over to https://cartavis.org to download
 
 ### Sample CASA guides
 
+0. https://almascience.nrao.edu/alma-data/science-verification   #4 on the list
 1. https://casaguides.nrao.edu/index.php/M100_Band3
 2. https://casaguides.nrao.edu/index.php/M100_Band3_Combine
 3. https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish
 
 
-Note currently the Combine and SingleDish casaguides point to casa version 6.5.4
+Note currently the Combine and SingleDish casaguides point to casa version 6.5.4 (Fall 2024)
+
+### Data
+
+We will need 12m, 7m, and TP data. 
 
 
-https://almascience.nrao.edu/alma-data/science-verification   #4 on the list
-http://almascience.org/almadata/sciver/M100Band3_12m
-http://almascience.org/almadata/sciver/M100Band3ACA
+1. 12m data: http://almascience.org/almadata/sciver/M100Band3_12m
 
+   1. https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_CalibratedData.tgz    15GB  ***
+   2. https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_Imaging.py
+   
+            M100_Band3_12m_CalibratedData.ms
+            M100_12m_CO_demo.mask
+            M100_Band3_12m_Imaging.py   (should produce M100_Band3_12m_ReferenceImages.tgz = 297M)
+	 
+2. 7m & TP data: http://almascience.org/almadata/sciver/M100Band3ACA
 
-# https://casaguides.nrao.edu/index.php/M100_Band3
-
-# 12m data
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_CalibratedData.tgz    15GB  ***
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3_12m/M100_Band3_12m_Imaging.py
-         M100_Band3_12m_CalibratedData.ms
-	 M100_12m_CO_demo.mask
-	 M100_Band3_12m_Imaging.py   (should produce M100_Band3_12m_ReferenceImages.tgz = 297M)
-# 7m & TP data
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_CalibratedData.tgz            - 9.1G ***
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_Imaging.py
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_TP_CalibratedData_5.1.tgz        - 13G   --no--
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_DataComb_ReferenceImages_5.1.tgz - 393M
-  https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_ACA_ReferenceImages_5.1.tgz      - 24M
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_CalibratedData.tgz            - 9.1G ***
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_7m_Imaging.py
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_TP_CalibratedData_5.1.tgz        - 13G   --no--
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_DataComb_ReferenceImages_5.1.tgz - 393M
+       https://bulk.cv.nrao.edu/almadata/sciver/M100Band3ACA/M100_Band3_ACA_ReferenceImages_5.1.tgz      - 24M
 
   !  had to move the ms and mask file into the top level directory where working
 
+3. Combo Tutorial:  https://bulk.cv.nrao.edu/almadata/public/combo_tutorial
 
-# https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish_6.5.4
-
-# https://casaguides.nrao.edu/index.php/M100_Band3_Combine_6.5.4
-
+       M100_combine12+7_CO_cube.image.tgz
+       script.py
 
 
-# Related Links
+## Data Symlinks:
+
+As mentoined, the tgz files dump their (calibrated) data in subdirectories. To avoid confusion I decided to use
+symlinks to these places, instead of moving them. So we would have:
+
+
+      ln -s M100_Band3_12m_CalibratedData/M100_Band3_12m_CalibratedData.ms/
+      ln -s M100_Band3_7m_CalibratedData/M100_Band3_7m_CalibratedData.ms
+      ln -s M100_Band3_ACA_ReferenceImages_5.1/M100_TP_CO_cube.spw3.image.bl
+
+
+# Links
 
 
 1. CASA: https://casa.nrao.edu/casa_obtaining.shtml
