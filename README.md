@@ -176,10 +176,14 @@ To be confirmed if these still work, but this might be the link:  https://www.as
 
 ## Papers
 
-* [Ekers and Rots 1979](https://ui.adsabs.harvard.edu/abs/1979ASSL...76...61E)
-* [Vogel et al. 1984](https://ui.adsabs.harvard.edu/abs/1984ApJ...283..655V)
-* [Braun and Walterbos 1985](https://ui.adsabs.harvard.edu/abs/1985A%26A...143..307B)
+* [Ekers and Rots 1979](https://ui.adsabs.harvard.edu/abs/1979ASSL...76...61E) - Short Spacing Synthesis from a Primary Beam Scanned Interferometer 
+* [Vogel et al. 1984](https://ui.adsabs.harvard.edu/abs/1984ApJ...283..655V) - Interaction of the outflow and quiescent gas in Orion : HCO+ aperture synthesis maps. 
+* [Braun and Walterbos 1985](https://ui.adsabs.harvard.edu/abs/1985A%26A...143..307B) - A solution to the short spacing problem in radio interferometry. 
 * [Jorsater and van Moorsel 1995](https://ui.adsabs.harvard.edu/abs/1995AJ....110.2037J)
 * [Kurono, Morita, Kamazaki 2009](https://ui.adsabs.harvard.edu/abs/2009PASJ...61..873K)
 * [Koda et al. 2011](https://ui.adsabs.harvard.edu/abs/2011ApJS..193...19K)
+* [Cotton 2017](https://ui.adsabs.harvard.edu/abs/2017PASP..129i4501C/) - Fourier Plane Image Combination by Feathering
+* [Hoffman & Kepley 2018](https://library.nrao.edu/public/memos/gbt/GBT_300.pdf) - Correcting ALMA 12-m Array Data for Missing Short Spacings Using the Green Bank Telescope
 * [Koda et al. 2019](https://ui.adsabs.harvard.edu/abs/2019PASP..131e4505K)
+* [Rau et al. 2019](https://ui.adsabs.harvard.edu/abs/2019AJ....158....3R) -A Joint Deconvolution Algorithm to Combine Single-dish and Interferometer Data for Wideband Multiterm and Mosaic Imaging
+* [Mason 2020](https://arxiv.org/abs/2006.06549) - Imaging Spatially Extended Objects with Interferometers: Mosaicking and the Short Spacing Correction
