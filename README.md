@@ -187,3 +187,4 @@ To be confirmed if these still work, but this might be the link:  https://www.as
 * [Koda et al. 2019](https://ui.adsabs.harvard.edu/abs/2019PASP..131e4505K)
 * [Rau et al. 2019](https://ui.adsabs.harvard.edu/abs/2019AJ....158....3R) -A Joint Deconvolution Algorithm to Combine Single-dish and Interferometer Data for Wideband Multiterm and Mosaic Imaging
 * [Mason 2020](https://arxiv.org/abs/2006.06549) - Imaging Spatially Extended Objects with Interferometers: Mosaicking and the Short Spacing Correction
+* [Miyoshi et al. 2024](https://arxiv.org/pdf/2410.19267) - An Independent Hybrid Imaging of Sgr A∗ from the Data in EHT 2017 Observations
