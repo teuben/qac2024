@@ -144,11 +144,17 @@ For TW-Hya, we need the calibrated measurement set (twhya_calibrated.ms).
 
 0. TW-Hya data:  https://bulk.cv.nrao.edu/almadata/public/ALMA_firstlooks/twhya_firstlook.tgz
 
-   Extract the needed files and download *both* text files:
-   1.  tar -xvzf twhya_firstlook.tgz
-   2.  tar -xvf twhya_calibrated.ms.tar
-   3.  https://github.com/teuben/qac2024/blob/main/imaging_tutorial.txt
-   4.  https://github.com/teuben/qac2024/blob/main/selfcal_tutorial.txt
+1. Extract the needed files:   
+```
+   tar -xvzf twhya_firstlook.tgz
+   tar -xvf twhya_calibrated.ms.tar
+```
+
+2. Download the text files:
+```   
+   1. https://github.com/teuben/qac2024/blob/main/imaging_tutorial.py
+   2. https://github.com/teuben/qac2024/blob/main/selfcal_tutorial.py
+```
 
 
 ### 2.2 M100

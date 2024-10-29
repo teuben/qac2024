@@ -1,4 +1,4 @@
-# DO NOT RUN THIS AS A SCRIPT ITSELF.
+# DO NOT RUN THIS AS A SCRIPT ITSELF. The following are commands for CASA, not for Python.
 
 
 listobs(vis='twhya_calibrated.ms')
@@ -13,7 +13,8 @@ plotms(vis='twhya_calibrated.ms', xaxis='u', yaxis='v', avgchannel='10000', avgs
 plotms(vis='twhya_calibrated.ms', xaxis='UVwave', yaxis='Amp', avgchannel='10000', avgspw=False, avgtime='1e9', avgscan=False,field='2', coloraxis='antenna1', showgui=True)
 
 
-os.system('rm -rf phase_cal.*')
+# do this only if you have existing old files to delete
+#os.system('rm -rf phase_cal.*')  
 
 
 tclean(vis='twhya_calibrated.ms', imagename='phase_cal', 
@@ -29,6 +30,7 @@ threshold='0.0mJy',
 interactive=True)
 
 
+# Remove the generated files since we did not do any cleaning using the previous tclean command
 os.system('rm -rf phase_cal.*')
 
 
@@ -46,12 +48,15 @@ niter=5000,
 interactive=True)
 
 
-os.system('rm -rf twhya_smoothed.ms')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_smoothed.ms')
+
 
 split(vis='twhya_calibrated.ms', field='5', width='8', outputvis='twhya_smoothed.ms', datacolumn='data')
 
 
-os.system('rm -rf twhya_cont.*')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_cont.*')
 
 
 tclean(vis='twhya_smoothed.ms',
@@ -67,7 +72,8 @@ niter=5000,
 interactive=True)
 
 
-os.system('rm -rf twhya_cont.pbcor.image')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_cont.pbcor.image')
 
 impbcor(imagename='twhya_cont.image',
 pbimage='twhya_cont.pb',
@@ -86,8 +92,8 @@ plotms(vis='twhya_selfcal.ms',
        avgbaseline=True, 
        showgui = True)
 
-
-os.system('rm -rf twhya_selfcal.ms.contsub')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_selfcal.ms.contsub')
 
 uvcontsub(vis = 'twhya_selfcal.ms',
           field = '5',
@@ -109,7 +115,9 @@ plotms(vis='twhya_selfcal.ms.contsub',
 
 restfreq = '372.67249GHz'
 
-os.system('rm -rf twhya_n2hp.*')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_n2hp.*')
+
 tclean(vis = 'twhya_selfcal.ms.contsub',
        imagename = 'twhya_n2hp',
        field = '5',
@@ -132,7 +140,8 @@ tclean(vis = 'twhya_selfcal.ms.contsub',
        niter=5000)
 
 
-os.system('rm -rf twhya_n2hp.pbcor.image')
+# do this only if you have existing old files to delete
+#os.system('rm -rf twhya_n2hp.pbcor.image')
 
 impbcor(imagename='twhya_n2hp.image',
 pbimage='twhya_n2hp.pb',
