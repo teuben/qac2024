@@ -1,15 +1,16 @@
-# Files 
+# Scripts
 
-1. 100_Band3_12m_Imaging.py
+1. M100_Band3_12m_Imaging.py
 *  M100_Band3_12m_Imaging_trimmed.py
 *  M100_Band3_7m_Imaging.py
 *  M100_Band3_7m_Imaging_trimmed.py
-*  M100_combine.py
+*  M100_combine.py - based on https://casaguides.nrao.edu/index.php/M100_Band3_Combine
 *  M100_combine_trimmed.py
-*  M100_trimdata5.py
-*  qac.py
-*  script.py
-*  selfcal_tutorial.py
+*  M100_trimdata5.py - how to make the trimmed data (bug in **mstransform** ?)
+*  qac.py - helper functions, e.g. qac_stats() for regression
+*  script.py - like M100_combine.py
+*  selfcal_tutorial.py - TW Hyd
+*  imaging_tutorial.py - TW Hyd
 
 # Things you can grab
 
