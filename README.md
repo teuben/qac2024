@@ -249,9 +249,9 @@ code ran across all my cores.
 
 ## Papers
 
-* [Ekers and Rots 1979](https://ui.adsabs.harvard.edu/abs/1979ASSL...76...61E) - Short Spacing Synthesis from a Primary Beam Scanned Interferometer 
-* [Vogel et al. 1984](https://ui.adsabs.harvard.edu/abs/1984ApJ...283..655V) - Interaction of the outflow and quiescent gas in Orion : HCO+ aperture synthesis maps. 
-* [Braun and Walterbos 1985](https://ui.adsabs.harvard.edu/abs/1985A%26A...143..307B) - A solution to the short spacing problem in radio interferometry. 
+1. [Ekers and Rots 1979](https://ui.adsabs.harvard.edu/abs/1979ASSL...76...61E) - Short Spacing Synthesis from a Primary Beam Scanned Interferometer 
+2. [Vogel et al. 1984](https://ui.adsabs.harvard.edu/abs/1984ApJ...283..655V) - Interaction of the outflow and quiescent gas in Orion : HCO+ aperture synthesis maps. 
+3. [Braun and Walterbos 1985](https://ui.adsabs.harvard.edu/abs/1985A%26A...143..307B) - A solution to the short spacing problem in radio interferometry. 
 * [Jorsater and van Moorsel 1995](https://ui.adsabs.harvard.edu/abs/1995AJ....110.2037J) - High Resolution Neutral Hydrogen Observations of the Barred Spiral Galaxy NGC 1365 
 * [Kurono, Morita, Kamazaki 2009](https://ui.adsabs.harvard.edu/abs/2009PASJ...61..873K) - A Study of Combining Technique of Single-Dish and Interferometer Data: Imaging Simulations and Analysis 
 * [Koda et al. 2011](https://ui.adsabs.harvard.edu/abs/2011ApJS..193...19K) = CO(J = 1-0) Imaging of M51 with CARMA and the Nobeyama 45 m Telescope 
