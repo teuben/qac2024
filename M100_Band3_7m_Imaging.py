@@ -142,7 +142,7 @@ tclean(vis=linevis,
       weighting='briggs', 
       robust=0.5,
       gridder='mosaic',
-      mask='M100_7m_CO_demo.mask',
+      #mask='M100_7m_CO_demo.mask',
       pbcor=True)
 
 # M100_7m_CO.image (and other files) created -- use .mask file to reproduce my masking by hand
@@ -151,6 +151,9 @@ tclean(vis=linevis,
 
 ##############################################
 # Make moment maps of the CO(1-0) emission 
+
+cmd='rm -rf  M100_7m_CO.image*mom*'
+os.system(cmd)
 
 immoments(imagename = 'M100_7m_CO.image',
          moments = [0],
@@ -186,10 +189,9 @@ if False:
 ##############################################
 # Export the images
 
-exportfits(imagename='M100_7m_CO.image',            fitsimage='M100_7m_CO.image.fits')
-exportfits(imagename='M100_7m_CO.pb',               fitsimage='M100_7m_CO.pb.fits')
-exportfits(imagename='M100_7m_CO.image.pbcor',      fitsimage='M100_7m_CO.image.pbcor.fits')
-exportfits(imagename='M100_7m_CO.image.mom0',       fitsimage='M100_7m_CO.image.mom0.fits')
-exportfits(imagename='M100_7m_CO.image.pbcor.mom0', fitsimage='M100_7m_CO.image.mom0.pbcor.fits')
-exportfits(imagename='M100_7m_CO.image.mom1',       fitsimage='M100_7m_CO.image.mom1.fits')
-
+exportfits(imagename='M100_7m_CO.image',            fitsimage='M100_7m_CO.image.fits',                overwrite=True)
+exportfits(imagename='M100_7m_CO.pb',               fitsimage='M100_7m_CO.pb.fits',                   overwrite=True)
+exportfits(imagename='M100_7m_CO.image.pbcor',      fitsimage='M100_7m_CO.image.pbcor.fits',          overwrite=True)
+exportfits(imagename='M100_7m_CO.image.mom0',       fitsimage='M100_7m_CO.image.mom0.fits',           overwrite=True)
+exportfits(imagename='M100_7m_CO.image.pbcor.mom0', fitsimage='M100_7m_CO.image.mom0.pbcor.fits',     overwrite=True)
+exportfits(imagename='M100_7m_CO.image.mom1',       fitsimage='M100_7m_CO.image.mom1.fits',           overwrite=True)
