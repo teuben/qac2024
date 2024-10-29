@@ -6,14 +6,15 @@ Scripts, Code and Data you might find in your qac2024 directory, as well as ~/.c
 ## Scripts
 
 1. M100_Band3_12m_Imaging.py
-*  M100_Band3_12m_Imaging_trimmed.py
 *  M100_Band3_7m_Imaging.py
-*  M100_Band3_7m_Imaging_trimmed.py
 *  M100_combine.py - based on https://casaguides.nrao.edu/index.php/M100_Band3_Combine
-*  M100_combine_trimmed.py
-*  M100_trimdata5.py - how to make the trimmed data (bug in **mstransform** ?)
-*  qac.py - helper functions, e.g. qac_stats() for regression
 *  script.py - like M100_combine.py
+
+*  M100_trimdata5.py - how to make the trimmed data (bug in **mstransform** ?)
+*  M100_Band3_12m_Imaging_trimmed.py
+*  M100_Band3_7m_Imaging_trimmed.py
+*  M100_combine_trimmed.py
+*  qac.py - helper functions, e.g. qac_stats() for regression
 *  selfcal_tutorial.py - TW Hyd
 *  imaging_tutorial.py - TW Hyd
 *  Makefile - helper targets
@@ -21,7 +22,7 @@ Scripts, Code and Data you might find in your qac2024 directory, as well as ~/.c
 ## Things you can grab
 
 0. analysis_scripts.tar
-1. qac_bench5.tar.gz  - the trimmed data
+1. qac_bench5.tar.gz  - the M100 trimmed data
 * M100_Band3_12m_CalibratedData.tgz
 * M100_Band3_7m_CalibratedData.tgz
 * M100_Band3_ACA_ReferenceImages_5.1.tgz
