@@ -51,7 +51,7 @@ For ubuntu, **carta** is now available as a standard package
 
 otherwise head over to https://cartavis.org to download your favorite version of CARTA.
 
-Running carta
+      wget https://github.com/CARTAvis/carta/releases/latest/download/carta.AppImage.x86_64.tgz
 
 
 ### 1.3 Analysis Scripts
@@ -94,12 +94,16 @@ For large computations your laptop may not efficiently be able to display the da
 them to your laptop, but with CARTA , much like jupyter notebooks, there's now a way to remotely compute and
 locally display using your browser.  You will need to use an ssh port forwarding technique for this.
 
-      rem% carta M100_demo.fits --no_browser
-         # copy and paste the URL with the token
+      remote% carta M100_demo.fits --no_browser
+      # copy and paste the URL with the token on your local machine
+      xdg-open http://129.2.14.56:3002/?token=4fff9b36-1925-4fbb-928f-a609a114a35f
+
+
+if this doesn't work, perhaps the port is being blocked, and you might be able to use ssh port forwarding, e.g.
+
       xxx% PORT=3333 && ssh -L ${PORT}:localhost:${PORT} <user>@<server> carta --host=localhost --port=${PORT} --no_browser
 
 Compare this to a similar way how remote jupyter notebooks can be run:
-
 
 
        # login on the remote
