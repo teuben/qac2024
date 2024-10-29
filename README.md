@@ -43,6 +43,11 @@ Download, extract, and run. Here's an example for linux:
       tar xf casa-6.5.6-22-py3.8.el8.tar.xz
       casa-6.6.5-31-py3.10.el8/bin/casa
 
+if you an error about missing data, create this directory, and start casa again. This is likely to happen
+if you're never run CASA.
+
+      mkdir $HOME/.casa/data
+
 ### 1.2 CARTA
 
 For ubuntu, **carta** is now available as a standard package
@@ -77,7 +82,7 @@ for a more portable version, one can use
 
 ###  1.4 Converting CASA format to FITS
 
-      casa-6.6.5-31-py3.10.el8/bin/casa
+      OMP_NUM_THREADS=1 casa-6.6.5-31-py3.10.el8/bin/casa
       CASA <1> exportfits('demo/M100_combine12+7_CO_cube.image','M100-demo.fits')
       CASA <2> exit
 
@@ -124,8 +129,16 @@ Compare this to a similar way how remote jupyter notebooks can be run:
        local%  xdg-open http://localhost:8086/tree?token=blablablabla
 
 
+### 1.6 Speeding up CASA?
 
-### 1.6 Sample CASA guides
+Python's Global Interpreter Lock (GIL) can pay havoc on casa's runtime.  The 7m imaging script took 3 mins on my laptop,
+where if using 1 processorm it ran in 1 min.  The 12m imaging not as fast a speedup:   9.5 mins to 6 mins.`
+
+Here is how you can force casa to run with 1 processor
+
+      OMP_NUM_THREADS=1 casa-6.6.5-31-py3.10.el8/bin/casa
+
+### 1.7 Sample CASA guides
 
 0. https://almascience.nrao.edu/alma-data/science-verification   (TW Hyd is #1 on the list, M100 is #4 on the list)
 1. https://casaguides.nrao.edu/index.php?title=TWHydraBand7
