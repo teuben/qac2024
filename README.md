@@ -9,6 +9,7 @@ be available on  https://github.com/teuben/qac2024 - please reload/pull this reg
 
 Original link: https://science.nrao.edu/facilities/alma/facilities/alma/naasc-workshops/nrao-dr-umd24
 
+Zoom link: https://umd.zoom.us/j/99368489955?pwd=XLKs8w2i87PAAkb0QKOQ6b6gTcfZL3.1
 
 *    10:30 - 10:40  Welcome coffee & event logistics
 *    10:40 - 11:40  ALMA Overview and Interferometry Basics (Eltha Teng)
