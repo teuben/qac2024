@@ -23,6 +23,7 @@ install:
 
 ## git:       Get all git repos for this install
 git:  $(GIT_DIRS)
+	@echo "GIT_DIRS: $(GIT_DIRS)"
 	@echo Last git: `date` >> git.log
 
 
