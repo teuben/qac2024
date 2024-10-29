@@ -88,16 +88,43 @@ for a more portable version, one can use
       $ fits2idia [-o M100-demo.hdf5] M100-demo.fits
       $ carta M100-demo.fits
 
-### 1.5 RUnning CARTA on remote machines
+### 1.5 Running CARTA on remote machines
 
 For large computations your laptop may not efficiently be able to display the data. Of course you can copy
 them to your laptop, but with CARTA , much like jupyter notebooks, there's now a way to remotely compute and
 locally display using your browser.  You will need to use an ssh port forwarding technique for this.
 
+      rem% carta M100_demo.fits --no_browser
+         # copy and paste the URL with the token
+      xxx% PORT=3333 && ssh -L ${PORT}:localhost:${PORT} <user>@<server> carta --host=localhost --port=${PORT} --no_browser
+
+Compare this to a similar way how remote jupyter notebooks can be run:
+
+
+
+       # login on the remote
+       local% ssh user@remote
+
+       # set up your python environment on the remote, YMMV
+       remote% source anaconda3/python_start.sh
+
+       # start up a notebook without local browser, but pick a free port number
+       # watch the URL to be loaded later
+       remote% jupyter notebook --no-browser --port=8086
+
+       # set up port forwarding between laptop and remote, this will leave an open shell on remote
+       local% ssh -L 8086:localhost:8086 user@remote
+       local%
+
+       # 
+       local%  xdg-open http://localhost:8086/tree?token=blablablabla
+
+
+
 ### 1.6 Sample CASA guides
 
 0. https://almascience.nrao.edu/alma-data/science-verification   (TW Hyd is #1 on the list, M100 is #4 on the list)
-1. https://casaguides.nrao.edu/index.php?title=TWHydraBand7   ???
+1. https://casaguides.nrao.edu/index.php?title=TWHydraBand7
 1. https://casaguides.nrao.edu/index.php/M100_Band3
 2. https://casaguides.nrao.edu/index.php/M100_Band3_Combine
 3. https://casaguides.nrao.edu/index.php/M100_Band3_SingleDish
