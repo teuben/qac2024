@@ -51,6 +51,8 @@ For ubuntu, **carta** is now available as a standard package
 
 otherwise head over to https://cartavis.org to download your favorite version of CARTA.
 
+Running carta
+
 
 ### 1.3 Analysis Scripts
 
@@ -86,7 +88,13 @@ for a more portable version, one can use
       $ fits2idia [-o M100-demo.hdf5] M100-demo.fits
       $ carta M100-demo.fits
 
-### 1.5 Sample CASA guides
+### 1.5 RUnning CARTA on remote machines
+
+For large computations your laptop may not efficiently be able to display the data. Of course you can copy
+them to your laptop, but with CARTA , much like jupyter notebooks, there's now a way to remotely compute and
+locally display using your browser.  You will need to use an ssh port forwarding technique for this.
+
+### 1.6 Sample CASA guides
 
 0. https://almascience.nrao.edu/alma-data/science-verification   (TW Hyd is #1 on the list, M100 is #4 on the list)
 1. https://casaguides.nrao.edu/index.php?title=TWHydraBand7   ???
@@ -103,6 +111,9 @@ Note currently the Combine and SingleDish casaguides point to casa version 6.5.4
 ### 2.1 TW Hyd
 
 For TW-Hya, we need the calibrated measurement set (twhya_calibrated.ms).
+
+    1. https://bulk.cv.nrao.edu/almadata/sciver/TWHya/TWHYA_BAND7_CalibratedData.tgz    5.7 GB
+    2. https://bulk.cv.nrao.edu/almadata/sciver/TWHya/TWHYA_BAND7_ReferenceImages.tgz   8.5 MB
 
 0. TW-Hya data:  https://bulk.cv.nrao.edu/almadata/public/ALMA_firstlooks/twhya_firstlook.tgz
 
