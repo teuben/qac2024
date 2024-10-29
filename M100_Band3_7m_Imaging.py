@@ -1,25 +1,6 @@
 # Imaging script for M100, 7m data
-# Tested in CASA version 5.1.1
+# Tested in CASA version 6.5.6
 
-#--------------------------------------------------------------------------------------#
-#                     Data Preparation                                                 #
-# -------------------------------------------------------------------------------------#
-
-# Comment this step out if you are starting from the calibrated data
-# M100_Band3_7m_CalibratedData.ms downloaded from the Science Portal
-
-if False:
-    # Split off the M100 calibrated data
-    split (vis='uid___A002_X5e971a_X124.ms.split.cal', field='M100', outputvis='M100_X124.ms.cal', datacolumn='data',keepflags=False)
-    split (vis='uid___A002_X5e971a_X2e7.ms.split.cal', field='M100', outputvis='M100_X2e7.ms.cal', datacolumn='data',keepflags=False)
-    split (vis='uid___A002_X5e9ff1_X3f3.ms.split.cal', field='M100', outputvis='M100_X3f3.ms.cal', datacolumn='data',keepflags=False)
-    split (vis='uid___A002_X5e9ff1_X5b3.ms.split.cal', field='M100', outputvis='M100_X5b3.ms.cal', datacolumn='data',keepflags=False)
-    split (vis='uid___A002_X60b415_X44.ms.split.cal', field='M100', outputvis='M100_X44.ms.cal', datacolumn='data',keepflags=False)
-    split (vis='uid___A002_X62f759_X4eb.ms.split.cal', field='M100', outputvis='M100_X4eb.ms.cal', datacolumn='data',keepflags=False)
-
-    # Combine all the ms into one
-    concat(vis=['M100_X2e7.ms.cal','M100_X124.ms.cal','M100_X3f3.ms.cal','M100_X5b3.ms.cal','M100_X44.ms.cal','M100_X4eb.ms.cal'],
-           concatvis='M100_Band3_7m_CalibratedData.ms')
 
 # From this point on you can proceed from M100_Band3_7m_CalibratedData.ms
 
@@ -29,7 +10,7 @@ if False:
 
 ##################################################
 # Check CASA version
-qversion = casalith.version_string()
+version = casalith.version_string()
 print("You are using " + version)
 if (version < '6.5.0'):
     print("YOUR VERSION OF CASA IS TOO OLD FOR THIS GUIDE.")
@@ -43,10 +24,11 @@ else:
 finalvis='M100_Band3_7m_CalibratedData.ms' 
 
 # Use plotms to identify line and continuum spectral windows
-plotms(vis=finalvis, xaxis='channel', yaxis='amplitude',
-       ydatacolumn='data',
-       avgtime='1e8', avgscan=True, avgchannel='1', 
-       iteraxis='spw' )
+if False:
+    plotms(vis=finalvis, xaxis='channel', yaxis='amplitude',
+           ydatacolumn='data',
+           avgtime='1e8', avgscan=True, avgchannel='1', 
+           iteraxis='spw' )
 
 ##################################################
 # Create an Averaged Continuum MS
@@ -115,12 +97,14 @@ uvcontsub_old(vis=finalvis,
 
 
 linevis = finalvis+'.contsub'
+linevis = finalvis
 lineimagename = 'M100_7m_CO' # name of line image
 
 # If you do not wish to use the provided mask, comment out the line: "mask=''"
 
 for ext in ['.image','.mask','.model','.image.pbcor','.psf','.residual','.pb','.sumwt']:
     rmtables(lineimagename + ext)
+# M100_12m_CO.weight
 
 tclean(vis=linevis,
       imagename=lineimagename, 
@@ -172,18 +156,6 @@ immoments(imagename = 'M100_7m_CO.image.pbcor',
          axis = 'spectral',chans = '9~60', 
          includepix = [0.056,100.], 
          outfile = 'M100_7m_CO.image.pbcor.mom0')
-
-# Make some png plots  (deprecated)
-
-if False:
-    imview (raster=[{'file': 'M100_7m_CO.image.mom0',
-                 'range': [-0.3,130.],'scaling': -1.3,'colorwedge': True}],
-         zoom={'blc': [47,38],'trc': [163,152]},
-         out='M100_7m_CO.image.mom0.png')
-    imview (raster=[{'file': 'M100_7m_CO.image.mom1',
-                 'range': [1440,1695],'colorwedge': True}],
-         zoom={'blc': [47,38],'trc': [163,152]},
-         out='M100_7m_CO.image.mom1.png')
 
 
 ##############################################
