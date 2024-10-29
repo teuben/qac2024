@@ -1,18 +1,30 @@
 
 
-# joint 7m+12m on trimmed data
+# joint 7m+12m on trimmed data - based on https://casaguides.nrao.edu/index.php/M100_Band3_Combine_6.5.4
 
 
-# trimmed versions
-vis12 = 'M100_aver_12.ms'
-vis7  = 'M100_aver_7.ms'
+vis12 = 'M100_Band3_12m_CalibratedData.ms'
+vis7  = 'M100_Band3_7m_CalibratedData.ms'
+
+listobs(vis12)
+listobs(vis7)
+
+# Split off CO spectral windows (SPWs)
+
+os.system('rm -rf M100_12m_CO.ms')
+split(vis='M100_Band3_12m_CalibratedData.ms',
+      outputvis='M100_12m_CO.ms',spw='0',field='M100',
+      datacolumn='data',keepflags=False)
+os.system('rm -rf M100_7m_CO.ms')
+split(vis='M100_Band3_7m_CalibratedData.ms',
+      outputvis='M100_7m_CO.ms',spw='3,5',field='M100',
+      datacolumn='data',keepflags=False)
 
 
 # Concat and scale weights
 os.system('rm -rf M100_combine_CO.ms')
 concat(vis=[vis12, vis7],
        concatvis='M100_combine_CO.ms')
-
 
 
 ### Define clean parameters
@@ -71,7 +83,8 @@ tclean(vis=vis,
 myimage=prename+'_dirty.image'
 bigstat=imstat(imagename=myimage)
 peak= bigstat['max'][0]
-print('peak (Jy/beam) in cube = '+str(peak))   # 0.8418998718261719
+print('peak (Jy/beam) in cube = '+str(peak))   # 0.5939250588417053
+
 
 # find the RMS of a line free channel (should be around 0.011
 chanstat=imstat(imagename=myimage,chans='4')
@@ -80,7 +93,8 @@ chanstat=imstat(imagename=myimage,chans='66')
 rms2= chanstat['rms'][0]
 rms=0.5*(rms1+rms2)        
 
-print('rms (Jy/beam) in a channel = '+str(rms))   # 0.01072584467430408
+print('rms (Jy/beam) in a channel = '+str(rms))   # 0.011619168683360558
+
 
 
 
@@ -127,7 +141,7 @@ tclean(vis=vis,
        negativethreshold=negativethresh,
        interactive=False,
        pbcor=True)
-
+# 10.09 - 10.20
 
 # Moment Maps for 7m+12m CO (1-0) Cube
 
@@ -138,7 +152,7 @@ rms1= chanstat['rms'][0]
 chanstat=imstat(imagename=myimage,chans='66')
 rms2= chanstat['rms'][0]
 rms=0.5*(rms1+rms2)
-print('rms in a channel = '+str(rms))   # 0.01072584467430408
+print('rms in a channel = '+str(rms))   # 0.011619168683360558
 
 
 
@@ -224,7 +238,8 @@ immath(imagename=['M100_TP_CO_cube.regrid.subim',
 
 
 
-
+imhead('M100_combine_CO_cube.image.subim')   # 394 x 432 x 1 x 70      3.8 x 2.6" beam
+imhead('M100_TP_CO_cube.regrid.subim.depb')  #                         56" beam
 
 
 # Feather TP Cube with 7m+12m Cube
@@ -234,7 +249,9 @@ os.system('rm -rf M100_Feather_CO.image')
 feather(imagename='M100_Feather_CO.image',
         highres='M100_combine_CO_cube.image.subim',
         lowres='M100_TP_CO_cube.regrid.subim.depb')
-
+#
+# 2024-10-29 10:22:59     SEVERE  feather::imager::feather()      Caught exception: (/source/casa6/casatools/casacore/images/Images/ImageBeamSet.cc : 113) Failed AlwaysAssert chan >=0 && chan < Int(nchan()) && stokes >= 0 && stokes < Int(nstokes())
+# 2024-10-29 10:22:59     SEVERE  feather::::casa Exception Reported: Error in feather: 2024-10-29 10:22:59       SEVERE  feather::imager::feather()      Caught exception: (/source/casa6/casatools/casacore/images/Images/ImageBeamSet.cc : 113) Failed AlwaysAssert chan >=0 && chan < Int(nchan()) && stokes >= 0 && stokes < Int(nstokes())
 
 
 myimage = 'M100_TP_CO_cube.regrid.subim'
