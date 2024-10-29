@@ -1,4 +1,9 @@
-# Scripts
+# Files
+
+Scripts, Code and Data you might find in your qac2024 directory, as well as ~/.casa directory.
+
+
+## Scripts
 
 1. M100_Band3_12m_Imaging.py
 *  M100_Band3_12m_Imaging_trimmed.py
@@ -11,8 +16,9 @@
 *  script.py - like M100_combine.py
 *  selfcal_tutorial.py - TW Hyd
 *  imaging_tutorial.py - TW Hyd
+*  Makefile - helper targets
 
-# Things you can grab
+## Things you can grab
 
 0. analysis_scripts.tar
 1. qac_bench5.tar.gz  - the trimmed data
@@ -25,7 +31,7 @@
 * TWHYA_BAND7_CalibratedData.tgz
 * TWHYA_BAND7_ReferenceImages.tgz
 
-# Things that some scripts need:
+## Things that some scripts need:
 
 1. M100_TP_CO_cube.spw3.image.bl
 * M100_Band3_12m_CalibratedData.ms
