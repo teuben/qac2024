@@ -82,7 +82,7 @@ for a more portable version, one can use
 
 ###  1.4 Converting CASA format to FITS
 
-      OMP_NUM_THREADS=1 casa-6.6.5-31-py3.10.el8/bin/casa
+      casa-6.6.5-31-py3.10.el8/bin/casa
       CASA <1> exportfits('demo/M100_combine12+7_CO_cube.image','M100-demo.fits')
       CASA <2> exit
 
@@ -137,6 +137,7 @@ where if using 1 processorm it ran in 1 min.  The 12m imaging not as fast a spee
 Here is how you can force casa to run with 1 processor
 
       OMP_NUM_THREADS=1 casa-6.6.5-31-py3.10.el8/bin/casa
+
 
 ### 1.7 Sample CASA guides
 
@@ -219,7 +220,17 @@ The data for M100 are huge!  We have compiled a dataset with trimmed down data
 for the 12m and 7m with just 70 x 5km/s channels to combine the data much
 quicker.
 
-To be confirmed if these still work, but this might be the link:  https://www.astro.umd.edu/~teuben/QAC/qac_bench5.tar.gz 
+To be confirmed if these still work, but this will be the link:
+
+      wget https://www.astro.umd.edu/~teuben/QAC/qac_bench5.tar.gz
+      tar zxf qac_bench5.tar.gz
+      
+      OMP_NUM_THREADS=1 casa-6.6.5-31-py3.10.el8/bin/casa
+      execfile("qac.py")
+      %time execfile("M100_Band3_7m_Imaging_trimmed.py")
+
+this took 1 minute on my laptop, and 3 minutes if the OMP setting was ignored and the
+code ran across all my cores.
 
 
 # References
