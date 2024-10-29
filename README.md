@@ -23,6 +23,10 @@ Zoom link: https://umd.zoom.us/j/99368489955?pwd=XLKs8w2i87PAAkb0QKOQ6b6gTcfZL3.
 *    16:45 - 17:00  Wrap-up & survey: https://naasc.typeform.com/to/r6wNKWpk#workshop=umd
 
 
+## 0. Files
+
+An explanation of files you might see in the qac2024 directory is [here](README_files.md)
+
 
 ## 1. Installing
 
@@ -51,7 +55,7 @@ if you're never run CASA.
 
 ### 1.2 CARTA
 
-For ubuntu, **carta** is now available as a standard package
+For Ubuntu Linux (this include Windows/WSL2), **carta** is now available as a standard package
 
       sudo apt install carta
 
