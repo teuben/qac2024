@@ -1,5 +1,7 @@
 # TODO's
 
+As a result of the demos, we identified a few things to work on:
+
 ## bugs
 
 - There are two sets of scripts:   the individual imaging scripts from the data-download links.Those are old and arguably should be removed or updated for casa6:
@@ -13,10 +15,12 @@
 
               chan >=0 && chan < Int(nchan()) && stokes >= 0 && stokes < Int(nstokes()
 
-   this only happens if you run the script a second time,as the TP data got "corrupted" with beams-per-plane.  
+   this only happens if you run the script a second time,as the TP data got "corrupted" with beams-per-plane.
+
+   SHould add here that the slides did not add the per-plane-beams, but the casaguide did.
 
 
-- .weight file needs to be removed before tclean() - a repeat with a different nchan for example will cause failure - better is to remove
+- .weight file also needs to be removed before tclean() - a repeat with a different nchan for example will cause failure - better is to remove
   all .* files before tclean() instead of the individual rmtables() used in the scripts
 
 
