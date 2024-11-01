@@ -250,6 +250,8 @@ code ran across all my cores.
 4. QAC: https://github.com/teuben/QAC 
 5. Phangs: https://github.com/akleroy/phangs_imaging_scripts
 6. CASA-Guides-Script-Extractor: https://github.com/CasaGuides/CASA-Guides-Script-Extractor
+7. Recent related workshops of note:
+   * https://arc.ira.inaf.it/events/array-combination-workshop/
 
 ## Papers
 
